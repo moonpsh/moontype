@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>옛날 디지털 시계</title>
+    <style>
+        body {
+            font-family: monospace;
+            background-color: #000000;  /* 검정 배경 */
+            color: #00FF00;  /* 네온 그린 색상 */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            flex-direction: column;
+        }
+
+        .clock {
+            text-align: center;
+        }
+
+        #time {
+            font-size: 200px;  /* 시, 분, 초 크기 */
+            font-weight: bold;  /* 두께 강조 */
+            letter-spacing: 10px;  /* 문자의 간격을 넓혀서 디지털 시계 느낌 강화 */
+            text-shadow: 0 0 10px #00FF00, 0 0 20px #00FF00, 0 0 30px #00FF00;  /* 네온 효과 */
+            margin-bottom: 20px;
+        }
+
+        #date {
+            font-size: 70px;  /* 날짜 크기 */
+            letter-spacing: 5px;
+            text-shadow: 0 0 10px #00FF00, 0 0 20px #00FF00, 0 0 30px #00FF00;  /* 네온 효과 */
+        }
+
+    </style>
+</head>
+<body>
+
+<div class="clock">
+    <div id="time">12:34:56</div>  <!-- 시, 분, 초 -->
+    <div id="date">2024-11-26</div>  <!-- 날짜 -->
+</div>
+
+</body>
+</html>

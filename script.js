@@ -13,8 +13,8 @@ document.getElementById("imageInput").addEventListener("change", function (event
 
             // 중앙 100픽셀 평균값 계산
             let totalR = 0, totalG = 0, totalB = 0, count = 0;
-            for (let x = canvas.width / 2 - 5; x < canvas.width / 2 + 5; x++) {
-                for (let y = canvas.height / 2 - 5; y < canvas.height / 2 + 5; y++) {
+            for (let x = canvas.width / 2 - 50; x < canvas.width / 2 + 50; x++) {
+                for (let y = canvas.height / 2 - 50; y < canvas.height / 2 + 50; y++) {
                     const pixelData = ctx.getImageData(x, y, 1, 1).data;
                     totalR += pixelData[0];
                     totalG += pixelData[1];

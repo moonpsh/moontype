@@ -37,7 +37,7 @@ document.getElementById("imageInput").addEventListener("change", function (event
             });
 
             document.getElementById("result").innerHTML = `
-                추출된 피부톤: <span style="color:${hexColor}; font-weight: bold;">${hexColor}</span><br>
+                피부톤 판별: <span style="color:${hexColor}; font-weight: bold;">${hexColor}</span><br>
                 퍼스널 컬러 판별 결과: <strong>${tone}</strong><br>
                 추천 컬러: ${colorHtml}
             `;

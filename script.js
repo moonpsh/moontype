@@ -11,11 +11,23 @@ document.getElementById("imageInput").addEventListener("change", function (event
             canvas.height = img.height / 2;
             ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
 
-            // 피부톤 색상 추출
-            const pixelData = ctx.getImageData(canvas.width / 2, canvas.height / 2, 1, 1).data;
-            const r = pixelData[0];
-            const g = pixelData[1];
-            const b = pixelData[2];
+            // 중앙 영역 (10x10 = 100픽셀)의 평균 피부톤 계산 // 피부톤 색상 추출
+            const regionSize = 10;
+            let totalR = 0, totalG = 0, totalB = 0, count = 0;
+            
+            for (let x = canvas.width / 2 - 5; x < canvas.width / 2 + 5; x++) {
+                for (let y = canvas.height / 2 - 5; y < canvas.height / 2 + 5; y++) {
+                    const pixelData = ctx.getImageData(x, y, 1, 1).data;
+                    totalR += pixelData[0];
+                    totalG += pixelData[1];
+                    totalB += pixelData[2];
+                    count++;
+                }
+            }
+
+            const r = Math.round(totalR / count);
+            const g = Math.round(totalG / count);
+            const b = Math.round(totalB / count);
 
             // HEX 변환
             const hexColor = `#${r.toString(16).padStart(2, "0")}${g.toString(16).padStart(2, "0")}${b.toString(16).padStart(2, "0")}`;

@@ -8,33 +8,55 @@
             background-color: #000;
             color: #0f0;
             font-family: 'Courier New', Courier, monospace;
-            font-size: 5em;
             text-align: center;
-            margin-top: 30%;
+            margin-top: 20%;
+        }
+        #clock {
+            font-size: 5em;
+            margin-bottom: 0.3em;
+        }
+        #date {
+            font-size: 2em;
         }
     </style>
 </head>
 <body>
     <div id="clock">00:00:00</div>
+    <div id="date">0000-00-00 (월)</div>
 
     <script>
         function updateClock() {
             var now = new Date();
+
+            // 시간
             var hours = now.getHours();
             var minutes = now.getMinutes();
             var seconds = now.getSeconds();
 
-            // 두 자리 숫자로 만들기
             hours = (hours < 10 ? "0" : "") + hours;
             minutes = (minutes < 10 ? "0" : "") + minutes;
             seconds = (seconds < 10 ? "0" : "") + seconds;
 
             var timeString = hours + ":" + minutes + ":" + seconds;
             document.getElementById('clock').textContent = timeString;
+
+            // 날짜
+            var year = now.getFullYear();
+            var month = now.getMonth() + 1; // 0부터 시작
+            var day = now.getDate();
+
+            month = (month < 10 ? "0" : "") + month;
+            day = (day < 10 ? "0" : "") + day;
+
+            var weekdays = ["일", "월", "화", "수", "목", "금", "토"];
+            var weekday = weekdays[now.getDay()];
+
+            var dateString = year + "-" + month + "-" + day + " (" + weekday + ")";
+            document.getElementById('date').textContent = dateString;
         }
 
         setInterval(updateClock, 1000);
-        updateClock(); // 처음 로딩 시 한 번 실행
+        updateClock();
     </script>
 </body>
 </html>

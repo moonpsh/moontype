@@ -2,21 +2,26 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>iPad Clock</title>
+    <title>iPad Clock with Background</title>
     <style>
         body {
-            background-color: #000;
-            color: #0f0;
+            background-image: url('background1.jpg'); /* 또는 background.png */
+            background-size: cover;       /* 화면 크기에 맞게 확대/축소 */
+            background-position: center;  /* 가운데 정렬 */
+            background-repeat: no-repeat; /* 반복 없음 */
+            color: #ffffff;
             font-family: 'Courier New', Courier, monospace;
             text-align: center;
             margin-top: 20%;
         }
         #clock {
-            font-size: 10em;
+            font-size: 8em;
             margin-bottom: 0.3em;
+            text-shadow: 2px 2px 4px #000000;
         }
         #date {
-            font-size: 4em;
+            font-size: 3em;
+            text-shadow: 1px 1px 3px #000000;
         }
     </style>
 </head>
@@ -28,7 +33,6 @@
         function updateClock() {
             var now = new Date();
 
-            // 시간
             var hours = now.getHours();
             var minutes = now.getMinutes();
             var seconds = now.getSeconds();
@@ -40,9 +44,8 @@
             var timeString = hours + ":" + minutes + ":" + seconds;
             document.getElementById('clock').textContent = timeString;
 
-            // 날짜
             var year = now.getFullYear();
-            var month = now.getMonth() + 1; // 0부터 시작
+            var month = now.getMonth() + 1;
             var day = now.getDate();
 
             month = (month < 10 ? "0" : "") + month;
